@@ -1,0 +1,158 @@
+
+
+<div class="left">
+
+    <div class="year-income" id="yearIncome">
+
+        <div class="loader round"></div>
+
+    </div>
+
+    <canvas id="incomeChart"></canvas>
+
+</div>
+
+<div class="right">
+
+    <div class="totals">
+
+        <div class="heading">
+            <h1><span id="monthTitle"></span> income</h1>
+        </div>
+
+        <fieldset class="result">
+            <legend>Total income</legend>
+            <h1>R <span id="totalIncome">0</span></h1>
+        </fieldset>
+        
+    </div>
+
+    <div class="amount-boxes" id="incomeSources">
+
+        <div class="loader round"></div>
+
+    </div>
+
+    <button class="action-btn primary-btn flex-center" onclick="showIncomeSourceModal()">
+        <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+            <path d="M12 5l0 14"></path>
+            <path d="M5 12l14 0"></path>
+        </svg>
+        Add income source
+    </button>
+
+</div>
+
+<!-- ADD/EDIT INCOME SOURCE MODAL-->
+<div class="modal income-source-modal flex-center hidden" id="addIncomeSourceModal">
+
+    <div class="overlay" onclick="display('hide', 'addIncomeSourceModal')"></div>
+
+    <div class="form content">
+    
+        <div class="form-header flex-between">
+            <div>
+                <h1>Income source</h1>
+                <p>Please enter the amount after all deductions</p>
+            </div>
+            <div class="icon flex-right" onclick="display('hide', 'addIncomeSourceModal')">
+                <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                    <path d="M18 6l-12 12"></path>
+                    <path d="M6 6l12 12"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="form-content">
+
+            <input type="hidden" id="editSourceID" value="0">
+
+            <label for="source" class="input-box" id="sourceBox">
+                <input type="text" id="source" onfocus="moveLabelUp('source')">
+                <p>Source</p>
+                <span class="descriptor">Name of the income source (e.g. Salary, Freelance, Investment)</span>
+            </label>
+
+            <label for="amount" class="input-box" id="amountBox">
+                <input type="number" id="amount" onfocus="moveLabelUp('amount')">
+                <p>Amount</p>
+                <span class="descriptor">How much is the income (monthly)?</span>
+            </label>
+
+            <div class="double-input flex-between">
+
+                <label for="month" class="input-box" id="monthBox">
+                    <select id="month" onclick="moveLabelUp('month')">
+                        <option value="" disabled selected></option>
+                        <option value="1">January</option>
+                        <option value="2">February</option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    <p>Month</p>
+                    <span class="descriptor">In what month did you receive this income?</span>
+                </label>
+
+                <label for="year" class="input-box label-up" id="yearBox">
+                    <select id="year" onclick="moveLabelUp('year')">
+                        <option value="2024" selected>2024</option>
+                        <option value="2025" disabled>2025</option>
+                    </select>
+                    <p>Year</p>
+                    <span class="descriptor">In what year did you receive this income?</span>
+                </label>
+
+            </div>
+
+            <div class="submit-btn">
+
+                <button class="primary-btn" onclick="submitIncomeSource()">
+                    Submit
+                </button>
+
+            </div>
+
+        </div>
+        
+    </div>
+
+</div>
+
+<!-- DELETE INCOME SOURCE MODAL-->
+<div class="modal confirm-modal flex-center hidden" id="confirmDeleteIncomeSourceModal">
+
+    <div class="overlay" onclick="display('hide', 'confirmDeleteIncomeSourceModal')"></div>
+
+    <div class="form content">
+
+        <input type="hidden" id="deleteSourceID">
+    
+        <div class="form-header flex-btween">
+            <h1>Delete income source</h1>
+        </div>
+
+        <p>Are you sure you want to delete that income source?</p>
+
+        <div class="actions flex-right">
+
+            <button class="secondary-btn cancel" onclick="display('hide', 'confirmDeleteIncomeSourceModal')">
+                Cancel
+            </button>
+            <button class="secondary-btn confirm" onclick="deleteIncomeSource()">
+                Delete
+            </button>
+
+        </div>
+        
+    </div>
+
+</div>
+

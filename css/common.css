@@ -1,0 +1,265 @@
+
+
+.controls{
+    width: 100%;
+    padding: 20px 20px 10px 20px;
+}
+
+.controls .filters{
+    width: fit-content;
+    gap: 15px;
+}
+
+.controls .filters .filter{
+    width: fit-content;
+    gap: 10px;
+    padding-right: 15px;
+    background-color: var(--light-black);
+    border: 1.5px solid #252525;
+    border-radius: var(--br-small);
+    overflow: hidden;
+}
+
+.light-mode .controls .filters .filter{
+    background-color: var(--black);
+    border-color: var(--border-color);
+}
+
+.controls .filters .filter p{
+    flex-shrink: 0;
+    padding: 0px 15px;
+    width: fit-content;
+    font-size: var(--fs-medium-small);
+    border-right: 3px solid #303030;
+}
+
+.light-mode .controls .filters .filter p{
+    border-right-color: var(--light-black);
+}
+
+.controls .filters select{
+    width: fit-content;
+    height: 40px;
+    flex-shrink: 0;
+    font-size: var(--fs-medium-small);
+    background-color: var(--light-black);
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.light-mode .controls .filters select{
+    background-color: var(--black);
+}
+
+
+.no-data{
+    width: fit-content;
+    margin: 40px 0px;
+    color: var(--txt-grey);
+}
+
+
+
+.wrapper-3{
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.wrapper-3 .right{
+    width: 100%;
+    max-width: 500px;
+    flex-shrink: 0;
+}
+
+.totals{
+    flex-shrink: 0;
+    width: 100%;
+    border-radius: var(--br-small);
+    background: rgb(0,171,66);
+    background: linear-gradient(20deg, rgba(0,171,66,1) 0%, rgba(0,144,68,1) 31%, rgba(255,201,0,1) 100%);
+    padding: 30px;
+}
+
+.totals .heading h1{
+    font-size: var(--fs-extra-large);
+    font-weight: var(--fw-bold);
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+.totals .result{
+    width: 100%;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: var(--br-small);
+    border-color: var(--white);
+}
+
+.totals .result legend{
+    font-size: var(--fs-medium);
+    font-weight: var(--fw-medium);
+    color: var(--white);
+    margin-left: 5px;
+    padding: 0px 10px;
+}
+
+.totals .result h1{
+    font-size: 35px;
+    font-weight: var(--fw-bold);
+    color: var(--white);
+}
+
+.totals .total{
+    width: 100%;
+    padding: 8px 0px;
+}
+
+.totals .total p{
+    font-size: var(--fs-medium-large);
+    color: var(--white);
+}
+
+.totals .total h5{
+    color: var(--white);
+    font-weight: var(--fw-extra-bold);
+    font-size: var(--fs-large);
+}
+
+.right .title{
+    margin: 30px 0px 20px 0px;
+    font-size: var(--fs-medium-large);
+    font-weight: var(--fw-medium-bold);
+    color: var(--txt-white);
+}
+
+
+
+.amount-boxes{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.amount-box{
+    width: 100%;
+    border-radius: var(--br-small);
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.4);
+    border: 1.5px solid #202020;
+    margin-bottom: 15px;
+}
+
+.light-mode .amount-box{
+    border-color: var(--border-color);
+    background-color: var(--black);
+}
+
+.amount-box:hover{
+    border-color: var(--green);
+}
+
+.amount-box .count{
+    flex-shrink: 0;
+    width: 50px;
+    height: 100%;
+    margin-right: 10px;
+}
+
+.amount-box .count h1{
+    font-size: var(--fs-extra-large);
+    color: var(--txt-grey);
+    font-weight: var(--fw-extra-bold);
+}
+
+.amount-box .details{
+    width: 100%;
+}
+
+.amount-box .details h1{
+    font-size: var(--fs-medium-large);
+    font-weight: var(--fw-medium-bold);
+    color: var(--txt-white);
+    margin-bottom: 6px;
+    text-transform: capitalize;
+}
+
+.amount-box .details p{
+    width: fit-content;
+    font-size: var(--fs-small);
+    color: var(--txt-grey);
+}
+
+.amount-box .price{
+    flex-shrink: 0;
+    width: fit-content;
+}
+
+.amount-box .price h1{
+    font-size: var(--fs-large);
+    font-weight: var(--fw-extra-bold);
+    color: var(--green);
+}
+
+.amount-box .actions{
+    flex-shrink: 0;
+    width: fit-content;
+    margin-left: 30px;
+    gap: 10px;
+}
+
+.amount-box .actions button{
+    width: 40px;
+}
+
+.amount-box .actions button.edit{
+    background-color: rgba(255, 157, 0, 0.3);
+    color: rgba(255, 157, 0, 1);
+}
+
+.amount-box .actions button.delete{
+    background-color: rgba(255, 0, 0, 0.3);
+    color: red;
+}
+
+.amount-box.month-total{
+    cursor: pointer;
+}
+
+.amount-box.month-total .level{
+    width: 50px;
+    flex-shrink: 0;
+}
+
+
+
+.action-btn{
+    width: 230px;
+    height: 60px;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+
+.modal .form{
+    width: 100%;
+    max-width: 550px;
+    background-color: var(--black);
+    border-radius: var(--br-medium);
+    border: 1.5px solid #252525;
+    padding: 20px;
+}
+
+.light-mode .modal .form{
+    border-color: transparent;
+}
+
+.left{
+    width: 550px;
+    flex-shrink: 0;
+    padding: 0px 20px 50px 0px;
+}
+
+.left .year-amount-boxes{
+    width: 100%;
+}
+

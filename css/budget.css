@@ -1,0 +1,87 @@
+
+
+.left{
+    width: 640px;
+}
+
+.amount-box.month-total .level.increase{
+    color: var(--red);
+}
+
+.expense.month-total .level.decrease{
+    color: var(--green);
+}
+
+.expense.month-total .level.straight{
+    color: rgb(255, 119, 0);
+}
+
+
+.amount-box{
+    cursor: default!important;
+}
+
+.amount-box.not-met{
+    background-color: rgb(255, 0, 0, 0.1);
+    border-color: rgb(255, 0, 0, 0.2);
+}
+
+.amount-box .price.income h1{
+    color: var(--green);
+}
+.amount-box .price.expense h1{
+    color: var(--red);
+}
+.amount-box .price.budget h1{
+    color: royalblue;
+}
+
+.amount-box .price p{
+    font-size: var(--fs-medium-small);
+    color: var(--txt-grey);
+    margin-bottom: 4px;
+}
+
+.amount-box .price.expense,
+.amount-box .price.income{
+    padding-right: 20px;
+    margin-right: 40px;
+    position: relative;
+}
+
+.amount-box .price.income::before,
+.amount-box .price.expense::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -10px;
+    height: 30px;
+    border-radius: 5px;
+    width: 3px;
+    background-color: #303030;
+}
+
+.amount-box .actions button{
+    color: var(--txt-white);
+}
+
+.amount-box .actions button:hover{
+    background-color: var(--black);
+}
+
+
+.action-btn{
+    margin: 0px auto;
+}
+
+.right .title{
+    width: fit-content;
+    margin: 0px auto;
+    font-size: var(--fs-large);
+}
+
+.right canvas{
+    width: 400px;
+    margin: 30px auto;
+}

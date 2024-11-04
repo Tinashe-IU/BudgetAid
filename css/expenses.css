@@ -1,0 +1,25 @@
+
+.amount-boxes{
+    padding-top: 0px;
+}
+
+.action-btn{
+    margin-top: 0px;
+}
+
+
+.amount-box.month-total .level.increase{
+    color: var(--red);
+}
+
+.amount-box.month-total .level.decrease{
+    color: var(--green);
+}
+
+.amount-box.month-total .level.straight{
+    color: rgb(255, 119, 0);
+}
+
+.amount-box .price h1{
+    color: var(--red);
+}

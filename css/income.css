@@ -1,0 +1,13 @@
+
+
+.amount-box.month-total .level.increase{
+    color: var(--green);
+}
+
+.amount-box.month-total .level.decrease{
+    color: var(--red);
+}
+
+.amount-box.month-total .level.straight{
+    color: rgb(0, 64, 255);
+}

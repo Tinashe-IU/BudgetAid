@@ -1,0 +1,171 @@
+
+
+<link rel="stylesheet" href="components/auth/auth.css">
+
+
+<div class="modal auth-modal login-modal flex-center <?php echo $user['user_id'] === null ? 'displayed' : 'hidden'; ?>" id="loginModal">
+
+    <div class="overlay"></div>
+
+    <div class="form content">
+
+        <div class="form-header">
+            <h1>Sign in </h1>
+            <p>Please sign in below to access your account</p>
+        </div>
+
+        <p class="error-output hidden" id="loginErrorOutput"></p>
+    
+        <div class="form-content">
+    
+            <label for="loginEmail" class="input-box with-icon low-margin flex-left" id="loginEmailBox">
+                <div class="icon flex-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" x-bind:stroke-width="stroke" stroke="currentColor">
+                        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                        <path d="M3 7l9 6l9 -6"></path>
+                    </svg>
+                </div>
+                <input type="email" id="loginEmail" onfocus="moveLabelUp('loginEmail')">
+                <p>Email</p>
+            </label>
+    
+            <label for="loginPassword" class="input-box with-icon low-margin flex-left" id="loginPasswordBox">
+                <div class="icon flex-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                        <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                        <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                        <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                    </svg>
+                </div>
+                <input type="password" id="loginPassword" onfocus="moveLabelUp('loginPassword')">
+                <p>Password</p>
+                <div class="eyes flex-center">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" id="loginEyeOn" onclick="togglePassword('login', 'off')" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" stroke-width="2">
+                        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="loginEyeOff" onclick="togglePassword('login', 'on')" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" stroke-width="2">
+                        <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828"></path>
+                        <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87"></path>
+                        <path d="M3 3l18 18"></path>
+                    </svg>
+
+                </div>
+            </label>
+
+            <div class="submit-btn">
+    
+                <button class="primary-btn" onclick="signIn()">
+                    Sign in
+                </button>
+    
+            </div>
+
+            <div class="switch-form" onclick="switchForm('register')">
+                <p>Don't have an account? <span>Register here</span></p>
+            </div>
+    
+        </div>
+        
+    </div>
+
+</div>
+
+
+<div class="modal auth-modal register-modal flex-center hidden" id="registerModal">
+
+    <div class="overlay"></div>
+
+    <div class="form content">
+
+        <div class="form-header">
+            <h1>Create an account</h1>
+            <p>Let's quickly create an account to get started</p>
+        </div>
+
+        <p class="error-output hidden" id="registerErrorOutput"></p>
+    
+        <div class="form-content">
+
+            <div class="double-input flex-between">
+
+                <label for="firstname" class="input-box with-icon low-margin flex-left" id="firstnameBox">
+                    <div class="icon flex-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                        </svg>
+                    </div>
+                    <input type="text" id="firstname" onfocus="moveLabelUp('firstname')">
+                    <p>First name</p>
+                </label>
+
+                <label for="surname" class="input-box with-icon low-margin flex-left" id="surnameBox">
+                    <div class="icon flex-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path>
+                        </svg>
+                    </div>
+                    <input type="text" id="surname" onfocus="moveLabelUp('surname')">
+                    <p>Surname</p>
+                </label>
+
+            </div>
+    
+            <label for="registerEmail" class="input-box with-icon low-margin flex-left" id="registerEmailBox">
+                <div class="icon flex-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" width="24" height="24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" x-bind:stroke-width="stroke" stroke="currentColor">
+                        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z"></path>
+                        <path d="M3 7l9 6l9 -6"></path>
+                    </svg>
+                </div>
+                <input type="email" id="registerEmail" onfocus="moveLabelUp('registerEmail')">
+                <p>Email</p>
+            </label>
+    
+            <label for="registerPassword" class="input-box with-icon low-margin flex-left" id="registerPasswordBox">
+                <div class="icon flex-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                        <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                        <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                        <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                    </svg>
+                </div>
+                <input type="password" id="registerPassword" onfocus="moveLabelUp('registerPassword')">
+                <p>Password</p>
+                <div class="eyes flex-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" id="registerEyeOn" onclick="togglePassword('register', 'off')" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" stroke-width="2">
+                        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="registerEyeOff" onclick="togglePassword('register', 'on')" x-bind:width="size" x-bind:height="size" viewBox="0 0 24 24" fill="none" stroke="currentColor" x-bind:stroke-width="stroke" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" stroke-width="2">
+                        <path d="M10.585 10.587a2 2 0 0 0 2.829 2.828"></path>
+                        <path d="M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87"></path>
+                        <path d="M3 3l18 18"></path>
+                    </svg>
+                </div>
+            </label>
+
+            <div class="submit-btn">
+    
+                <button class="primary-btn" onclick="register()">
+                    Submit
+                </button>
+    
+            </div>
+
+            <div class="switch-form" onclick="switchForm('login')">
+                <p>Already have an account? <span>Sign in here</span></p>
+            </div>
+    
+        </div>
+        
+    </div>
+
+</div>
+
+<script src="components/auth/auth.js"></script>

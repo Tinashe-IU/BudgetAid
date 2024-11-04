@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+    <meta name="description" content="Manage and visualize your budget">
+    <link rel="shortcut icon" href="resources/images/brand/favicon.ico" type="image/x-icon">
+
+    <title>BudgetAid</title>
+
+    <base href="https://www.budgetaid.co.za/">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/structure.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="components/form/form.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+    <div id="alertContainer"></div>
+
+    <div class="wrapper-1">
+
+        <div class="wrapper-2 flex-left">
+
+            <div class="sidebar">
+
+                <div class="brand flex-left">
+                    <div class="logo flex-center">
+                        <img src="resources/images/brand/logo.png" alt="logo">
+                    </div>
+                    <h1>BudgetAid</h1>
+                </div>
+
+                <div class="navigation">
+
+                    <?php include 'components/navigation.php'; ?>
+
+                </div>
+
+            </div>
+
+            <div class="body">
+               
+                <div class="controls flex-left">
+
+                    <div class="filters flex-right">
+
+                        <div class="filter flex-left">
+                            <p>Date</p>
+                            <select id="monthFilter" onchange="dateFilter('month')">
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <select id="yearFilter" onchange="dateFilter('year')">
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="wrapper-3 flex-left" id="app">
+
+                    <div class="loader round"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/main.js"></script>
+    <script src="components/form/form.js"></script>
+    <script src="js/app.js"></script>
+
+    <?php include 'components/auth/auth.html'; ?>
+
+</body>
+</html>

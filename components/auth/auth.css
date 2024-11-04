@@ -1,0 +1,59 @@
+
+
+.auth-modal .overlay{
+    backdrop-filter: blur(10px);
+}
+
+.auth-modal .form{
+    width: 450px;
+    background-color: var(--black);
+    border-radius: var(--br-medium);
+    border: 1.5px solid #252525;
+    padding: 25px;
+}
+
+.login-modal .form{
+    width: 450px;
+}
+
+.register-modal .form{
+    width: 600px;
+}
+
+.auth-modal .form .error-output{
+    width: 100%;
+    border-radius: var(--br-small);
+    padding: 20px;
+    color: var(--txt-white);
+    font-size: var(--fs-medium-small);
+    margin: 20px auto;
+    background-color: rgba(255, 0, 0, 0.3);
+}
+
+.auth-modal .form .switch-form{
+    width: 100%;
+    margin-top: 25px;
+}
+
+.auth-modal .form .switch-form p{
+    color: var(--txt-white);
+    font-size: var(--fs-medium-small);
+}
+
+.auth-modal .form .switch-form span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.auth-modal .form .switch-form span:hover{
+    color: var(--green);
+}
+
+.auth-modal .form .input-box .eyes{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--txt-grey);
+}
