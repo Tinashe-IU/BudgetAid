@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect non-www to www
+RewriteCond %{HTTP_HOST} ^budgetaid\.co\.za [NC]
+RewriteRule ^(.*)$ https://www.budgetaid.co.za/$1 [L,R=301]
+
+# Remove .php on the url
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
